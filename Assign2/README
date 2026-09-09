@@ -1,1 +1,33 @@
+Overview
+This practical implements a Multilayer Perceptron (MLP) neural network for classifying the Iris dataset. 
+The model is evaluated using accuracy, precision, recall, F1-score, confusion matrix, loss curve, and actual vs predicted graphs.
+Two train-test split scenarios are used to study the effect of different amounts of training data.
 
+Dataset – Iris
+The Iris dataset is a commonly used dataset for classification. It contains measurements of iris flowers belonging to three different species.
+Total samples: 150
+Number of features: 4
+Feature values: Sepal length, Sepal width, Petal length, Petal width
+Number of classes: 3
+Classes: Setosa, Versicolor, Virginica
+Each sample contains four numerical measurements, and the target label represents the species of the flower.
+
+Model
+The MLP classifier uses:
+Hidden layers: 2
+Neurons: 10 neurons in each hidden layer
+Activation: ReLU
+Optimizer: Adam
+Maximum iterations: 1000
+The input consists of the four Iris features, while the output predicts one of the three flower classes.
+
+Scenarios
+Scenario 1
+Training data: 80%
+Testing data: 20%
+Random state: 42
+Scenario 2
+Training data: 90%
+Testing data: 10%
+Random state: 42
+The same MLP architecture is used in both scenarios so that their performance can be compared fairly.
