@@ -1,1 +1,28 @@
+Overview
+This practical demonstrates time-series forecasting using a Long Short-Term Memory (LSTM) neural network. 
+Historical gold prices are used to create sequences, which are then provided to the LSTM model to predict the next gold price.
 
+Dataset
+The Gold Price Dataset contains historical daily gold prices.
+Dataset: Gold Price Dataset
+Source: Kaggle
+Feature used: Date and INR gold price
+Target: Gold price in INR
+Data type: Time-series
+Frequency: Daily
+The Date column represents the date of the observation, while the INR column contains the corresponding gold price in Indian Rupees.
+
+Sequence Creation
+A sequence length of 30 days is used.
+The previous 30 gold prices are used as input to predict the gold price of the next day.
+
+LSTM Model
+The model consists of:
+LSTM layer with 50 units
+Dense output layer with 1 neuron
+The model uses:
+Optimizer: Adam
+Loss function: Mean Squared Error
+Epochs: 10
+Batch size: 32
+LSTM is suitable for time-series forecasting because it can learn patterns and dependencies from sequential data.
