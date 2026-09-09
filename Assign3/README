@@ -1,1 +1,37 @@
+Overview
+This practical implements a neural network using TensorFlow/Keras to demonstrate forward propagation and backpropagation for handwritten digit classification. 
+It also analyzes how different learning rates and numbers of epochs affect model performance.
 
+Dataset – MNIST
+MNIST is a widely used dataset for handwritten digit classification.
+Total images: 70,000
+Training images: 60,000
+Testing images: 10,000
+Image size: 28 × 28 pixels
+Image type: Grayscale
+Number of classes: 10
+Classes: Digits 0–9
+Pixel range: 0–255
+Each image contains a handwritten digit from 0 to 9. The images are reshaped from 28 × 28 into a vector of 784 values and normalized to the range 0–1.
+
+Neural Network
+The model contains:
+Input layer: 784 input features
+Hidden layer: 128 neurons with ReLU
+Hidden layer: 64 neurons with ReLU
+Output layer: 10 neurons with Softmax
+The model uses the Adam optimizer and Sparse Categorical Crossentropy loss.
+
+Learning Rate Analysis
+Three learning rates are tested:
+0.1
+0.01
+0.001
+The models are trained for 5 epochs and their test accuracies are compared.
+
+Epoch Analysis
+Three training durations are tested:
+5 epochs
+10 epochs
+20 epochs
+The test accuracy is compared to observe how increasing the number of training epochs affects performance.
