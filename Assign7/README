@@ -1,1 +1,55 @@
+VGG16 Transfer Learning for Flower Classification
+Objective
+Implement transfer learning using the pre-trained VGG16 model for classifying flower images and evaluate its performance.
+
+Dataset
+This project uses the TensorFlow Flower Photos Dataset.
+Dataset URL:
+https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz
+The dataset contains 3,670 images belonging to 5 flower classes:
+Daisy
+Dandelion
+Roses
+Sunflowers
+Tulips
+Dataset Split:
+80% Training: 2,936 images
+20% Validation: 734 images
+Image Size: 224 × 224
+Batch Size: 32
+
+Model
+A VGG16 model pre-trained on ImageNet is used as the feature extractor.
+Pre-trained convolutional layers are frozen.
+Original ImageNet classification layer is removed.
+New classification layers are added for the 5 flower classes.
+Final layer uses Softmax activation.
+
+Architecture
+Input Image (224×224×3)
+        ↓
+Pre-trained VGG16
+        ↓
+Global Average Pooling
+        ↓
+Dense (128)
+        ↓
+Dropout (0.5)
+        ↓
+Dense (5, Softmax)
+
+Training
+Optimizer : Adam
+Loss      : Sparse Categorical Crossentropy
+Epochs    : 5
+Metric    : Accuracy
+
+Execution
+1. Download the Flower Photos dataset.
+2. Load and split the dataset into training and validation sets.
+3. Load pre-trained VGG16.
+4. Freeze the base model and add a classification layer.
+5. Train for 5 epochs.
+6. Evaluate validation accuracy and loss.
+7. Plot training and validation accuracy.
 
