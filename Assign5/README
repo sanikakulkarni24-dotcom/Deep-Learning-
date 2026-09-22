@@ -1,1 +1,40 @@
+Gold Price Prediction Using RNN, LSTM and GRU
 
+Dataset
+This project uses the Gold Price Dataset available on Kaggle:
+Dataset Source - https://www.kaggle.com/datasets/rizkykiky/gold-price-dataset
+The dataset contains historical gold price data provided at different time intervals, including:
+Daily
+Weekly
+Monthly
+Quarterly
+Yearly
+It also contains Average (Avg) and End of Period (EoP) versions for some time intervals.
+For this project, we specifically use:
+Daily.csv
+
+Important Columns
+Date – Date of the recorded gold price
+INR – Gold price in Indian Rupees
+The INR column contains values such as 6,250.50, so commas are removed and the values are converted into numerical format before training.
+
+Data Preprocessing
+The daily data is sorted chronologically and missing values are removed. The gold prices are normalized using MinMaxScaler, converting the values approximately to a range of 0 to 1.
+A 30-day sliding window is then created:
+
+Previous 30 days → Next day's gold price
+The resulting data is divided chronologically into 80% training data and 20% testing data.
+
+Models
+Three recurrent neural network models are implemented and compared:
+Simple RNN
+LSTM
+GRU
+Each model uses the previous 30 days of gold prices to predict the next day's price.
+
+Evaluation
+The models are evaluated using:
+MAE – Mean Absolute Error
+RMSE – Root Mean Squared Error
+R² – R-squared Score
+The results are compared using tables and graphs to determine which model performs best for gold price prediction.
