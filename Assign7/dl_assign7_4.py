@@ -1,10 +1,3 @@
-
-get_ipython().run_line_magic('pip', 'install tensorflow numpy matplotlib pandas')
-
-
-# In[2]:
-
-
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
@@ -19,10 +12,6 @@ from tensorflow.keras.applications.resnet50 import preprocess_input as resnet_pr
 print("TensorFlow version:", tf.__version__)
 print("Available GPU:", tf.config.list_physical_devices("GPU"))
 
-
-# In[3]:
-
-
 dataset_path = tf.keras.utils.get_file(
     "flower_photos",
     origin="https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz",
@@ -32,10 +21,6 @@ dataset_path = tf.keras.utils.get_file(
 print("Downloaded dataset path:", dataset_path)
 print("Folders:", os.listdir(dataset_path))
 
-
-# In[4]:
-
-
 nested_path = os.path.join(dataset_path, "flower_photos")
 
 if os.path.isdir(nested_path):
@@ -43,10 +28,6 @@ if os.path.isdir(nested_path):
 
 print("Final dataset path:", dataset_path)
 print("Contents:", os.listdir(dataset_path))
-
-
-# In[5]:
-
 
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
@@ -81,18 +62,10 @@ print("Number of classes:", num_classes)
 
 assert num_classes == 5, "Dataset should contain five flower classes!"
 
-
-# In[6]:
-
-
 AUTOTUNE = tf.data.AUTOTUNE
 
 train_ds = train_ds.prefetch(AUTOTUNE)
 val_ds = val_ds.prefetch(AUTOTUNE)
-
-
-# In[7]:
-
 
 alexnet_model = models.Sequential([
     layers.Input(shape=(224, 224, 3)),
@@ -131,19 +104,11 @@ alexnet_history = alexnet_model.fit(
     epochs=EPOCHS
 )
 
-
-# In[8]:
-
-
 alexnet_loss, alexnet_accuracy = alexnet_model.evaluate(val_ds)
 
 print("AlexNet Validation Loss:", alexnet_loss)
 print("AlexNet Validation Accuracy:", alexnet_accuracy)
 print("AlexNet Validation Accuracy (%):", round(alexnet_accuracy * 100, 2))
-
-
-# In[9]:
-
 
 vgg_base = VGG16(
     weights="imagenet",
@@ -178,18 +143,11 @@ vgg_history = vgg_model.fit(
 )
 
 
-# In[10]:
-
-
 vgg_loss, vgg_accuracy = vgg_model.evaluate(val_ds)
 
 print("VGG16 Validation Loss:", vgg_loss)
 print("VGG16 Validation Accuracy:", vgg_accuracy)
 print("VGG16 Validation Accuracy (%):", round(vgg_accuracy * 100, 2))
-
-
-# In[11]:
-
 
 resnet_base = ResNet50(
     weights="imagenet",
@@ -223,19 +181,11 @@ resnet_history = resnet_model.fit(
     epochs=EPOCHS
 )
 
-
-# In[12]:
-
-
 resnet_loss, resnet_accuracy = resnet_model.evaluate(val_ds)
 
 print("ResNet50 Validation Loss:", resnet_loss)
 print("ResNet50 Validation Accuracy:", resnet_accuracy)
 print("ResNet50 Validation Accuracy (%):", round(resnet_accuracy * 100, 2))
-
-
-# In[13]:
-
 
 efficientnet_base = EfficientNetB0(
     weights="imagenet",
@@ -268,10 +218,6 @@ efficientnet_history = efficientnet_model.fit(
     epochs=EPOCHS
 )
 
-
-# In[14]:
-
-
 efficientnet_loss, efficientnet_accuracy = efficientnet_model.evaluate(val_ds)
 
 print("EfficientNetB0 Validation Loss:", efficientnet_loss)
@@ -280,10 +226,6 @@ print(
     "EfficientNetB0 Validation Accuracy (%):",
     round(efficientnet_accuracy * 100, 2)
 )
-
-
-# In[15]:
-
 
 results = pd.DataFrame({
     "Model": [
@@ -317,10 +259,6 @@ results["Validation Accuracy (%)"] = results["Validation Accuracy (%)"].round(2)
 
 print(results.to_string(index=False))
 
-
-# In[16]:
-
-
 model_names = results["Model"].tolist()
 accuracies = results["Validation Accuracy (%)"].tolist()
 
@@ -342,10 +280,6 @@ for bar, accuracy in zip(bars, accuracies):
 
 plt.tight_layout()
 plt.show()
-
-
-# In[17]:
-
 
 histories = {
     "AlexNet": alexnet_history,
@@ -375,10 +309,6 @@ plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.show()
 
-
-# In[18]:
-
-
 for model_name, history in histories.items():
     plt.figure(figsize=(8, 5))
 
@@ -405,11 +335,6 @@ for model_name, history in histories.items():
     plt.tight_layout()
     plt.show()
 
-
-
-# In[19]:
-
-
 best_model = results.loc[
     results["Validation Accuracy (%)"].idxmax()
 ]
@@ -417,10 +342,3 @@ best_model = results.loc[
 print("Best Model:", best_model["Model"])
 print("Validation Accuracy:", best_model["Validation Accuracy (%)"], "%")
 print("Validation Loss:", best_model["Validation Loss"])
-
-
-# In[ ]:
-
-
-
-
