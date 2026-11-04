@@ -1,1 +1,29 @@
+Speech-to-Text and Text-to-Speech using Whisper
 
+Overview
+This project uses OpenAI Whisper for speech-to-text conversion and gTTS for text-to-speech generation. It also evaluates transcription accuracy using Word Error Rate (WER).
+
+Technologies Used
+- Python
+- OpenAI Whisper
+- gTTS
+- Jiwer
+- FFmpeg
+- Google Colab
+
+Methodology
+1. Upload an audio file.
+2. Convert speech into text using Whisper.
+3. Detect the language and measure processing time.
+4. Compare the recognized text with the reference transcript.
+5. Calculate Word Error Rate (WER) and approximate word accuracy.
+6. Generate speech output and evaluate the results.
+
+Evaluation Metrics
+- Processing Time: Time taken for speech recognition.
+- Word Error Rate (WER): Measures transcription errors.
+- Word Accuracy: Approximate accuracy calculated from WER.
+- TTS Generation: Checks whether speech output was generated successfully.
+
+Conclusion
+This project demonstrates speech recognition, transcription evaluation, and speech generation using deep learning and text-to-speech tools.
