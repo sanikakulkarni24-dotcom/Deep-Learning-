@@ -1,1 +1,41 @@
+# CNN vs Vision Transformer (ViT) Image Classification
 
+## Overview
+This project compares CNN (ResNet18) and Vision Transformer (ViT) for image classification using the CIFAR-10 dataset.
+
+## Technologies Used
+- Python
+- PyTorch
+- Torchvision
+- Hugging Face Transformers
+- Matplotlib
+- Pandas
+
+## Dataset
+CIFAR-10 contains images from 10 classes: airplane, automobile, bird, cat, deer, dog, frog, horse, ship, and truck.
+
+- Training images: 5,000
+- Testing images: 2,000
+
+## Models Used
+**1. CNN (ResNet18)**
+- Uses a pre-trained ResNet18 model.
+- Trains the final classification layer for 10 classes.
+
+**2. Vision Transformer (ViT)**
+- Uses a pre-trained Vision Transformer model.
+- Trains the classification layer for 10 classes.
+
+## Methodology
+1. Load and preprocess the CIFAR-10 dataset.
+2. Resize and normalize images.
+3. Load and configure both models.
+4. Train both models for 2 epochs.
+5. Evaluate accuracy and testing time.
+6. Compare predictions using graphs and sample images.
+
+## Results
+The models are compared based on classification accuracy, evaluation time, and prediction results. Bar charts are used to visualize the comparison.
+
+## Conclusion
+This project compares CNN and Vision Transformer models for image classification and helps understand their performance differences in terms of accuracy and evaluation time.
